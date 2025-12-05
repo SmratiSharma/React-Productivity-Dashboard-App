@@ -1,0 +1,21 @@
+.text {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling props */
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
