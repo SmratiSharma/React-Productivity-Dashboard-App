@@ -1,28 +1,47 @@
+import React from "react";
 import "../styles/Card.css";
-import React, { Children } from "react";
 
-interface cardProps{
-    children  : React.ReactNode;
+interface CardProps {
+  children: React.ReactNode;
+  className?: string;
 }
 
-export default function Card({children} : cardProps)
-{
-    return <div className="card">{children}</div>
-}
+type CardComponent = React.FC<CardProps> & {
+  Header: React.FC<CardProps>;
+  Body: React.FC<CardProps>;
+  Footer: React.FC<CardProps>;
+};
 
-Card.header = function Header ({children} : cardProps)
-{
-    return <div className="header">{children}</div>
-}
+const Card: CardComponent = ({ children, className }: CardProps) => {
+  return (
+    <div className={["card", className].filter(Boolean).join(" ")}>
+      {children}
+    </div>
+  );
+};
 
-Card.body = function Body ({children} : cardProps)
-{
-    return <div className="body">{children}</div>
-}
+Card.Header = function Header({ children, className }: CardProps) {
+  return (
+    <div className={["header", className].filter(Boolean).join(" ")}>
+      {children}
+    </div>
+  );
+};
 
+Card.Body = function Body({ children, className }: CardProps) {
+  return (
+    <div className={["body", className].filter(Boolean).join(" ")}>
+      {children}
+    </div>
+  );
+};
 
-Card.footer = function Footer ({children} : cardProps)
-{
-    return <div className="footer">{children}</div>
-}
+Card.Footer = function Footer({ children, className }: CardProps) {
+  return (
+    <div className={["footer", className].filter(Boolean).join(" ")}>
+      {children}
+    </div>
+  );
+};
 
+export default Card;

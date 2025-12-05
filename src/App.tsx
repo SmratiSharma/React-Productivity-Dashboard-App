@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<DashboAWQ1ard />} />
+        <Route index element={<Dashboard />} />
         <Route path="tasks" element={<Tasks />} />
         <Route path="notes" element={<Notes />} />
         <Route path="settings" element={<Settings />} />
